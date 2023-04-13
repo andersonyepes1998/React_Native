@@ -22,7 +22,7 @@ export default function App() {
 
     //Desestructurar el objeto data
     const {fullName, email, phone, password,age}=data;
-    console.log(fullName)
+    console.log(fullName,email)
     reset();//PARA LIMPIAR LOS CAMPOS
 
   }
@@ -41,8 +41,8 @@ export default function App() {
         }}
         render={({ field: { onChange, onBlur, value } }) => (
           <TextInput
-            label="nombre completo"
-            mode='outlined'
+            label="Nombre"
+            mode='Flat'
             left={<TextInput.Icon icon="account-box" />}
             onBlur={onBlur}
             onChangeText={onChange}
@@ -50,8 +50,7 @@ export default function App() {
           />
         )}
         name="fullName"
-      />
-      {/* {errors.fullName.type == 'send' && <Text style={{color:'green'}}>Enviado...</Text>} */}
+    />
 
       {errors.fullName?.type == 'required' && <Text style={{color:'red'}}>El nombre completo es obligatorrio</Text>}
 
@@ -60,9 +59,141 @@ export default function App() {
       {errors.fullName?.type == 'minLength' && <Text style={{color:'red'}}>El nombre completo debe tener, al menos 2 caracteres...</Text>}
 
       {errors.fullName?.type == 'pattern' && <Text style={{color:'red'}}>El nombre permite solo letras...</Text>}
-          
+
+
+      <Controller
+        control={control}
+        rules={{
+        //send:true,
+         required: true,
+         maxLength:10,
+         minLength:3,
+         //pattern: /^([+-]?[1-9]d*|0)$/
+        }}
+        render={({ field: { onChange, onBlur, value } }) => (
+          <TextInput
+            label="Email"
+            mode='Flat'
+            left={<TextInput.Icon icon="email-multiple" />}
+            onBlur={onBlur}
+            onChangeText={onChange}
+            value={value}
+            style={{marginTop:20,color:'red'}}
+          />
+        )}
+        name="email"
+    />
+
+      {errors.email?.type == 'required' && <Text style={{color:'red'}}>El email completo es obligatorrio</Text>}
+
+      {errors.email?.type == 'maxLength' && <Text style={{color:'red'}}>El email completo debe tener maxino 30 caracteres...</Text>}
+
+      {errors.email?.type == 'minLength' && <Text style={{color:'red'}}>El email completo debe tener, al menos 10 caracteres...</Text>}
+
+      {errors.email?.type == 'pattern' && <Text style={{color:'red'}}>El nombre permite solo letras...</Text>}
+
+
+
+      <Controller
+        control={control}
+        rules={{
+        //send:true,
+         required: true,
+         maxLength:10,
+         minLength:3,
+         //pattern: /^([+-]?[1-9]d*|0)$/
+        }}
+        render={({ field: { onChange, onBlur, value } }) => (
+          <TextInput
+            label="Phone"
+            mode='Flat'
+            left={<TextInput.Icon icon="phone" />}
+            onBlur={onBlur}
+            onChangeText={onChange}
+            value={value}
+            style={{marginTop:20}}
+          />
+        )}
+        name="email"
+    />
+
+      {errors.email?.type == 'required' && <Text style={{color:'red'}}>El email completo es obligatorrio</Text>}
+
+      {errors.email?.type == 'maxLength' && <Text style={{color:'red'}}>El email completo debe tener maxino 30 caracteres...</Text>}
+
+      {errors.email?.type == 'minLength' && <Text style={{color:'red'}}>El email completo debe tener, al menos 10 caracteres...</Text>}
+
+      {errors.email?.type == 'pattern' && <Text style={{color:'red'}}>El nombre permite solo letras...</Text>}
+
+
+
+      <Controller
+        control={control}
+        rules={{
+        //send:true,
+         required: true,
+         maxLength:10,
+         minLength:3,
+         //pattern: /^([+-]?[1-9]d*|0)$/
+        }}
+        render={({ field: { onChange, onBlur, value } }) => (
+          <TextInput
+            label="Age"
+            mode='Flat'
+            left={<TextInput.Icon icon="face-agent" />}
+            onBlur={onBlur}
+            onChangeText={onChange}
+            value={value}
+            style={{marginTop:20}}
+          />
+        )}
+        name="email"
+    />
+
+      {errors.email?.type == 'required' && <Text style={{color:'red'}}>El email completo es obligatorrio</Text>}
+
+      {errors.email?.type == 'maxLength' && <Text style={{color:'red'}}>El email completo debe tener maxino 30 caracteres...</Text>}
+
+      {errors.email?.type == 'minLength' && <Text style={{color:'red'}}>El email completo debe tener, al menos 10 caracteres...</Text>}
+
+      {errors.email?.type == 'pattern' && <Text style={{color:'red'}}>El nombre permite solo letras...</Text>}
+
+
+      
+      <Controller
+        control={control}
+        rules={{
+        //send:true,
+         required: true,
+         maxLength:10,
+         minLength:3,
+         //pattern: /^([+-]?[1-9]d*|0)$/
+        }}
+        render={({ field: { onChange, onBlur, value } }) => (
+          <TextInput
+            label="Phone"
+            mode='Password'
+            left={<TextInput.Icon icon="lock-off" />}
+            onBlur={onBlur}
+            onChangeText={onChange}
+            value={value}
+            style={{marginTop:20}}
+          />
+        )}
+        name="email"
+    />
+
+      {errors.email?.type == 'required' && <Text style={{color:'red'}}>El email completo es obligatorrio</Text>}
+
+      {errors.email?.type == 'maxLength' && <Text style={{color:'red'}}>El email completo debe tener maxino 30 caracteres...</Text>}
+
+      {errors.email?.type == 'minLength' && <Text style={{color:'red'}}>El email completo debe tener, al menos 10 caracteres...</Text>}
+
+      {errors.email?.type == 'pattern' && <Text style={{color:'red'}}>El nombre permite solo letras...</Text>}
+
+
       <Button 
-        style={{marginTop:20}} 
+        style={{marginTop:20,backgroundColor:'purple'}} 
         icon="send-check" 
         mode="contained" 
         onPress={handleSubmit(onSubmit)}>
@@ -88,7 +219,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'violet',
     alignItems: 'center',
     justifyContent: 'center',
   },
